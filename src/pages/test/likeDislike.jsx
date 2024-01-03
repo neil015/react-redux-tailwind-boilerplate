@@ -16,16 +16,16 @@ const LikeDislike = ({
     }
 
     return (
-        <>
-            <div>
-                <button onClick={() => dispatchMiddleware(ACTION_TYPES[0])}>Like</button>
+        <div className='flex'>
+            <div className='mr-4'>
+                <button onClick={() => dispatchMiddleware(ACTION_TYPES[0])} className='mr-2'>Like</button>
                 <span>{likeCount[userId]}</span>
             </div>
             <div>
-                <button onClick={() => dispatchMiddleware(ACTION_TYPES[1])}>Dislike</button>
+                <button onClick={() => dispatchMiddleware(ACTION_TYPES[1])} className='mr-2'>Dislike</button>
                 <span>{dislikeCount[userId]}</span>
             </div>
-        </>
+        </div>
     )
 }
 
