@@ -6,6 +6,7 @@ import { debounce } from '../../helpers/helper';
 import usePagination from "./usePagination";
 import Pagination from "../../resuableComponents/Pagination/Pagination";
 import { useState } from "react";
+import LikeDislike from "./likeDislike";
 
 const API = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -44,7 +45,10 @@ export const UserData = () => {
       <ul className="pl-4">
         {
           pageData.map((data) => {
-            return <li key={data.id} className="list-disc">{data.title}</li>
+            return <li key={data.id} className="list-disc">
+              <div>{data.title}</div>
+              <LikeDislike userId={data.id}/>
+            </li>
           })
         }
       </ul>
