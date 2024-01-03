@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { updateDislikeCount, updateLikeCount } from "../../reducer/userData";
 import { ACTION_TYPES, likeDislikeDispatch } from './action';
 
 const LikeDislike = ({

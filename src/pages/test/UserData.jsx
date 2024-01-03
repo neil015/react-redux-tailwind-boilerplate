@@ -21,15 +21,19 @@ export const UserData = () => {
   const { range = [], pageData = [], updatePageNumber } = usePagination(userActualData, pageNumber, ROWS_PER_PAGE);
 
   useEffect(() => {
-      async function fetchUserData () {
-        setLoading(true);
-        const data = await fetch(API);
-        const res = await data.json();
-        dispatch(updateUserData(res));
-        setLoading(false);
-      }
-      const debounced = debounce(fetchUserData, 200);
-      debounced();
+    try {
+        async function fetchUserData () {
+          setLoading(true);
+          const data = await fetch(API);
+          const res = await data.json();
+          dispatch(updateUserData(res));
+          setLoading(false);
+        }
+        const debounced = debounce(fetchUserData, 200);
+        debounced(); 
+    } catch (error) {
+      console.warn('Some thing Went Wrong Please re-try');
+    }
   }, []);
 
   const setPageNumber = (e, pageNumber) => {
